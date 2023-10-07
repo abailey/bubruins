@@ -1,0 +1,120 @@
+<!-- 
+    Bootstrap CDN Starter: https://github.com/twbs/examples/blob/main/starter/index.html
+    Datatables: https://datatables.net/manual/installation
+    jQuery: https://releases.jquery.com/ 
+
+    References:
+    https://getbootstrap.com/docs/5.3/getting-started/introduction/ 
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>  
+</head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Adam Bailey</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <!--
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            -->
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Bellevue University
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="https://www.bellevue.edu/degrees/bachelor/software-development-bs/">Software Development Degree</a></li>
+                <li><a class="dropdown-item" href="https://www.bellevue.edu/degrees/bachelor/web-development-bs/">Web Development Degree</a></li>
+                <!--<li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+              </ul>
+            </li>
+            <!-- Sample Nav links
+            <li class="nav-item">
+              <a class="nav-link disabled">Disabled</a>
+            </li>
+          </ul>
+          -->
+          <!-- No search
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+          -->
+        </div>
+      </div>
+    </nav>
+
+    <div class="container my-5">
+      <h1>Course Requests</h1>
+      <div class="col-lg-8 px-0">
+        <p class="fs-5">Below I have rated my preference thoughts for the following courses for Bellevue University's Software Development and Web Development Degrees. To be honest, I would be happy and feel more than capable of teaching any or all of these. I can talk at great lengths about my experience in all of these topics.</p>
+        <table id="courseTable">
+            
+        </table>
+        <script type="text/javascript">
+            $(function() { 
+                const dataSet = [
+    ['CSD', '200', 'Foundation of Software Development', '5', 'This is a lot of what my current role asks me to do, in addition to actual development: Project management and Software Development Lifecyle (SDLC), great stuff!'],
+    ['CSD', '205', 'Introduction to Programming with Python', '5', 'Outside of teaching it, I mostly dabble with Python for STEM projects with my son.'],
+    ['CSD', '310', 'Database Development and Use', '5', 'Software development within Information Technology would be very challenging without this. All web developers should know this.'],
+    ['CSD', '320', 'Programming with Java', '5', 'I have been building Enterprise level Java applications for a few years now, and teaching it!'],
+    ['CSD', '340', 'Web Development with HTML and CSS', '5', 'Another must for web development. I have been working with HTML/CSS/XML for a very long time.'],
+    ['CSD', '405', 'Intermediate Java Programming', '5', 'The standard Object Oriented Programming (OOP) course'],
+    ['CSD', '370', 'Secure Software Development', '5', 'Essential considering so many tutorials out there do NOT promote secure development. For example, most database connection examples are vulnerable to SQL injection.'],
+    ['CSD', '420', 'Advanced Java Programming', '5', 'MVC is a real game changer and I recommend using it wherever possible.'],
+    ['CSD', '380', 'DevOps', '5', 'The LibrePlan project I helped with had unit tests that ran for about 45 minutes before compiling, it was a trip! DevOps is the future of software developers and necessary with cloud computing becoming the norm.'],
+    ['CSD', '430', 'Server Side Development', '5', 'Java Spring really makes this a breeze, allowing us to focus on our business logic and integrations and not reinventing the wheel. Using such a well supported library is a real treat.'],
+    ['CSD', '440', 'Server-Side Scripting', '5', 'Before I really embraced Java, PHP was my go to language for everything.'],
+    ['CSD', '460', 'Capstone in Software Development', '5', 'This just sounds like fun!'],
+    ['WEB', '200', 'Fundamentals of Web Development', '5', 'Full stack development would be impossible without this foundational knowledge.'],
+    ['WEB', '201', 'Internet Systems Architecture', '5', 'Great knowledge to understand the client/server workflow for the numerous reasons listed.'],
+    ['WEB', '231', 'Enterprise JavaScript I', '5', 'It is amazing what JavaScript can do. I have built entire systems with just JS code.'],
+    ['WEB', '321', 'Business Environment for Web Professionals', '5', 'For many years I was self employed doing Web Consulting. It has its Pros and Cons.'],
+    ['WEB', '330', 'Enterprise JavaScript II', '5', 'Great concepts to understand before diving in to Angular or React style frameworks.'],
+    ['WEB', '340', 'Node.js', '5', 'Node.js is a lot of fun to work with. Just be careful where you put protected business logic.'],
+    ['WEB', '335', 'Introduction to NoSQL', '5', 'Why create relational data when you can store whole data documents and write functions to do the work instead of queries?! The performance of a proper NoSQL design is mind blowing.'],
+    ['WEB', '420', 'RESTful APIs', '5', 'I just gave a presentation on how we use RESTful APIs to another college just this week.'],
+    ['WEB', '425', 'Angular with TypeScript', '5', 'Started using Angular since its very first release as an alternative to building native mobile applications. Ionic is nice and all, but Angular with a responsive design just makes more sense unless there is a pressing need for a specific mobile OS feature.'],
+    ['WEB', '430', 'DevOps', '5', 'The LibrePlan project I helped with had unit tests that ran for about 45 minutes before compiling, it was a trip! DevOps is the future of software developers and necessary with cloud computing becoming the norm.'],
+    ['WEB', '450', 'Mastering the MEAN Stack Bootcamp', '5', 'This just sounds like fun!']
+            ];
+
+                let table = new DataTable('#courseTable', {
+                    columns: [
+                        { title: 'Subject' },
+                        { title: 'Number' },
+                        { title: 'Title' },
+                        { title: 'Preference' },                        
+                        { title: 'Notes' }
+                    ],
+                    data: dataSet
+                });
+            });
+        </script>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>        
+    <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+  </body>
+</html>
